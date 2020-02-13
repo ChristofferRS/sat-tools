@@ -60,7 +60,7 @@ ply=Polygon(path)
 
 #}}}
 
-print("This script will create a flightplan for tx inhibit above russia\nIt requeres 2 inputs:\n1. Filename - The filename for the created flighplan, deafauld is 'YYYmmdd'\n 2. Days - nr. of days the created flighplan will last, deafault is 10")
+print("This script will create a flightplan for tx inhibit above russia\nIt requeres 2 inputs:\n1. Filename - The filename for the created flighplan, deafauld is 'YYYmmdd'\n2. Days - nr. of days the created flighplan will last, deafault is 10")
 
 # Get user input
 file_name=str(input("Filename for created flightplan: ") or datetime.now().strftime("%Y%m%d"))
