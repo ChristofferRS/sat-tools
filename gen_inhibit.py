@@ -1,7 +1,6 @@
 import ephem
 import urllib.request
 import numpy as np
-import matplotlib.pyplot as plt
 from shapely.geometry import Polygon, Point
 from datetime import datetime
 #STUP{{{
@@ -64,8 +63,8 @@ ply=Polygon(path)
 print("This script will create a flightplan for tx inhibit above russia\nIt requeres 2 inputs:\n1. Filename - The filename for the created flighplan, deafauld is 'YYYmmdd'\n 2. Days - nr. of days the created flighplan will last, deafault is 10")
 
 # Get user input
-file_name=str(input("Filename for created flightplan") or datetime.now().strftime("%Y%m%d"))
-nr_days=int(input("Days:") or 10)
+file_name=str(input("Filename for created flightplan: ") or datetime.now().strftime("%Y%m%d"))
+nr_days=int(input("Days: ") or 10)
 
 # Lambda functions for calculatinf distances
 
@@ -100,7 +99,6 @@ while start_date<ephem.now()+nr_days*24*ephem.hour:
     d2=ephem.newton(dst,start_date+ephem.minute,start_date)
     delphini.compute(d2)
     y2,x2=(float(repr(delphini.sublat))*(180/np.pi),float(repr(delphini.sublong))*(180/np.pi))
-    plt.plot([x1,x2],[y1,y2],'r-')
     start_date=d2+30*ephem.minute
     d1=get_epoch(d1)
     d2=get_epoch(d2)
