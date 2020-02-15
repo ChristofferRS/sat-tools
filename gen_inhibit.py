@@ -103,8 +103,8 @@ while start_date<ephem.now()+nr_days*24*ephem.hour:
     d1=get_epoch(d1)
     d2=get_epoch(d2)
     duration=d2-d1
-    out.append("tx_inhibit {:d},rparam download 5 0,0,0,0,0,{:d},0,1".format(N,d1-4))
-    out.append("tx_inhibit {:d},rparam set tx_inhibit {:d},1,0,0,0,{:d},0,1".format(N+1,duration,d1))
+    out.append("tx_inhibit{:d},rparam download 5 0,0,0,0,0,{:d},0,1".format(N,d1-4))
+    out.append("tx_inhibit{:d},rparam set tx_inhibit {:d},0,0,0,0,{:d},0,1".format(N+1,duration,d1))
     N+=2
 
 with open(file_name,'w') as out_file:
